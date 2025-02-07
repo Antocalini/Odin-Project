@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        let humanScore = 0;
+        let computerScore = 0;
+        const ROUND = 5;
+
+        const getComputerChoice = () => {
+            const computerChoice = ['rock', 'paper', 'scissors'];
+            const randomNumber = Math.floor(Math.random() * 3);
+            return (computerChoice[randomNumber]);
+        }
+
+        getHumanChoice = () => {
+            const humanChoice = prompt('Enter your choice: rock, paper or scissors');
+
+            if (humanChoice == 'rock' || humanChoice == 'paper' || humanChoice == 'scissors') {
+                return (humanChoice);
+            } else {
+                alert('Enter a valid option ')
+                getHumanChoice();
+            }
+        };
+
+
+        const formatChoice = (election, opp) => {
+            if (election == 'rock' && opp == 'paper') return -1;
+            if (election == 'rock') return 2;
+            if (election == 'scissors') return 1;
+            if (election == 'paper') return 0
+
+        }
+
+        const playRound = (humanChoice, computerChoice) => {
+            let humanChoiceFormat = formatChoice(humanChoice, computerChoice);
+            let computerChoiceFormat = formatChoice(computerChoice, humanChoice);
+
+            if (humanChoiceFormat > computerChoiceFormat) {
+                humanScore += 1;
+                return (`Human win ${humanChoice} beats ${computerChoice} `)
+
+            } else if (humanChoiceFormat == computerChoiceFormat) {
+                return `Draw! what a game`
+
+            } else {
+                computerScore += 1;
+                return `Computer win ${computerChoice} beats ${humanChoice} `
+            }
+        }
+
+        const playGame = (ROUND) => {
+
+            for (let i = 0; i <= ROUND; i++) {
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+
+                console.log(`round: ${i}`)
+                console.log(playRound(humanSelection, computerSelection));
+            }
+
+            console.log(`Human: ${humanScore} Computer: ${computerScore}`);
+            getWinner(humanScore, computerScore);
+        }
+
+        const getWinner = (humanScore, computerScore) => {
+
+            if (humanScore > computerScore) {
+                return (`Human Wins!`)
+            } else if (humanScore == computerScore) {
+                return (`Draw! very impressive`)
+            } else {
+                return (`Computer Wins!`)
+            }
+
+        }
+
+
+        playGame(ROUND);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

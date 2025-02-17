@@ -40,15 +40,24 @@ body {
     font-size: 30px;
 }
 
+#text {
+    font-family: 'Segoe UI';
+    font-weight: 700;
+    color: white;
+    font-size: 20px;
+}
 
 button {
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(2,2 , 2, 2) 35%, rgba(70, 70, 70, 1) 100%);
     color: white;
     font-weight: bold;
     border-radius: 10px;
     font-size: 20px;
     font-family: 'Segoe UI';
     padding: 10px;
+    font-size: 50px;
+    width: 140px;
+    height: 100px;
 }
 
 button:hover {
@@ -56,4 +65,3 @@ button:hover {
     transition: 0.2s;
     cursor: pointer;
 }
-
